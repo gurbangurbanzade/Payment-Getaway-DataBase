@@ -17,11 +17,9 @@ mongoose.connect(
 
 //DB TABLE
 const companySchema = new Schema({
-  companyName: String,
   email: String,
   fullName: String,
   password: String,
-  confirmPassword: String,
 });
 
 const Company = mongoose.model("Company", companySchema);
@@ -61,7 +59,7 @@ app.get("/company/:id", (req, res) => {
 // });
 
 //Post
-app.post("/company", (req, res) => {
+app.post("/register", (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
