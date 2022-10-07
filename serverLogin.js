@@ -78,7 +78,29 @@ app.post("/company", (req, res) => {
 });
 
 //Login Post
-app.post("/company/login", (req, res) => {});
+app.post("/login", (req, res) => {
+  let email = req.body.email;
+  let password = req.body.password;
+
+  Company.findOne(
+    { email: email, password: password },
+    function (err, company) {
+      if (err) {
+        console.log(err);
+        return res.status(500).send();
+      }
+      if (!company) {
+        return res.status(404).send("tapilmadi");
+      }
+      if (company) {
+        console.log(company.id);
+        return res.redirect(
+          `http://localhost:3000/admin/dashboard/${company.id}`
+        );
+      }
+    }
+  );
+});
 
 app.listen(8080, () => {
   console.log("Server is running!!");
