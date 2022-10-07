@@ -1,0 +1,25 @@
+{
+  "name": "payment-getaway-database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serverLogin.js",
+  "scripts": {
+    "start": "nodemon serverLogin.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gurbangurbanzade/Payment-Getaway-DataBase.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gurbangurbanzade/Payment-Getaway-DataBase/issues"
+  },
+  "homepage": "https://github.com/gurbangurbanzade/Payment-Getaway-DataBase#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "mongoose": "^6.6.5"
+  }
+}
