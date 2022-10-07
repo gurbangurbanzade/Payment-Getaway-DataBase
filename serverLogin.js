@@ -50,14 +50,15 @@ app.get("/company/:id", (req, res) => {
     }
   });
 });
+
 // Delete
-app.delete("/company/:id", (req, res) => {
-  let id = req.params.id;
-  Company.findByIdAndDelete(id, (err) => {
-    if (!err) res.json({ messagae: "Success!" });
-    else res.status(500).json(err);
-  });
-});
+// app.delete("/company/:id", (req, res) => {
+//   let id = req.params.id;
+//   Company.findByIdAndDelete(id, (err) => {
+//     if (!err) res.json({ messagae: "Success!" });
+//     else res.status(500).json(err);
+//   });
+// });
 
 //Post
 app.post("/company", (req, res) => {
@@ -66,12 +67,9 @@ app.post("/company", (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
   var company = new Company({
-    companyName: req.body.companyName,
     email: req.body.email,
     fullName: req.body.fullName,
     password: req.body.password,
-    confirmPassword: req.body.confirmPassword,
-    status: true,
   });
   company.save();
   res.send("Success!!");
